@@ -239,7 +239,7 @@ const Dashboard = () => {
           </div>
         </div>
 
-        {/* Enhanced Pie Chart */}
+        {/* Pie Chart */}
         <div className={`${isDark ? 'bg-slate-900 border-slate-800' : 'bg-white/80 backdrop-blur-xl border-indigo-200'} border rounded-2xl p-6 shadow-xl`}>
           <h3 className={`text-lg font-bold ${isDark ? 'text-white' : 'text-slate-800'} mb-4`}>Status Distribution</h3>
           <ResponsiveContainer width="100%" height={280}>
@@ -270,7 +270,6 @@ const Dashboard = () => {
         </div>
       </div>
 
-      {/* Area Chart & Bar Chart */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
         {/* Area Chart */}
         <div className={`${isDark ? 'bg-slate-900 border-slate-800' : 'bg-white/80 backdrop-blur-xl border-indigo-200'} border rounded-2xl p-6 shadow-xl`}>
