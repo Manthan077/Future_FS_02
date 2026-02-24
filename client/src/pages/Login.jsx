@@ -43,15 +43,7 @@ const Login = () => {
 
   return (
     <div className={`min-h-screen ${isDark ? 'bg-slate-950' : 'bg-gradient-to-br from-indigo-100 via-purple-50 to-pink-100'} flex items-center justify-center p-4`}>
-      <div className="w-full max-w-md relative">
-        {/* Theme Toggle Button */}
-        <button
-          onClick={toggleTheme}
-          className={`absolute -top-16 right-0 px-4 py-2 ${isDark ? 'bg-slate-800 hover:bg-slate-700 text-slate-300' : 'bg-white hover:bg-slate-50 text-slate-700'} rounded-xl transition shadow-lg font-medium`}
-        >
-          {isDark ? '☀️ Light Mode' : '🌙 Dark Mode'}
-        </button>
-
+      <div className="w-full max-w-md">
         {/* Logo & Title */}
         <div className="text-center mb-8">
           <div className="inline-flex items-center justify-center w-24 h-24 mb-4 rounded-2xl overflow-hidden shadow-xl">
@@ -68,7 +60,14 @@ const Login = () => {
         </div>
 
         {/* Login Card */}
-        <div className={`${isDark ? 'bg-slate-900 border-slate-800' : 'bg-white/80 backdrop-blur-xl border-indigo-200'} border rounded-3xl p-8 shadow-2xl`}>
+        <div className={`${isDark ? 'bg-slate-900 border-slate-800' : 'bg-white/80 backdrop-blur-xl border-indigo-200'} border rounded-3xl p-8 shadow-2xl relative`}>
+          {/* Theme Toggle Button */}
+          <button
+            onClick={toggleTheme}
+            className={`absolute top-4 right-4 px-3 py-1.5 ${isDark ? 'bg-slate-800 hover:bg-slate-700 text-slate-300' : 'bg-slate-100 hover:bg-slate-200 text-slate-700'} rounded-lg transition text-sm font-medium z-10`}
+          >
+            {isDark ? '☀️' : '🌙'}
+          </button>
           <h2 className={`text-2xl font-bold ${isDark ? 'text-white' : 'text-slate-800'} mb-2`}>Welcome Back</h2>
           <p className={`text-sm mb-6 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>Sign in to manage your leads</p>
 
