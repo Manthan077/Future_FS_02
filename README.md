@@ -9,6 +9,8 @@
 [![MongoDB](https://img.shields.io/badge/MongoDB-Database-brightgreen.svg)](https://www.mongodb.com/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.1.18-38B2AC.svg)](https://tailwindcss.com/)
 
+[🚀 **Live Demo**](https://leadforge-crm.vercel.app) | [📖 Documentation](#-getting-started)
+
 </div>
 
 ---
@@ -140,6 +142,12 @@ npm run dev
 7. **Access the Application**
 - Frontend: `http://localhost:5173`
 - Backend API: `http://localhost:5000`
+
+---
+
+**Demo Credentials:**
+- Email: `manthan@gmail.com`
+- Password: `Manthan123`
 
 ---
 
