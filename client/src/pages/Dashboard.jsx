@@ -7,6 +7,8 @@ import LeadDrawer from "../components/LeadDrawer";
 import AddLeadModal from "../components/AddLeadModal";
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, BarChart, Bar, XAxis, YAxis, CartesianGrid, AreaChart, Area, RadialBarChart, RadialBar } from "recharts";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 const FIRST_NAMES = ["John", "Sarah", "Michael", "Emma", "David", "Lisa", "James", "Maria", "Robert", "Jennifer", "William", "Linda", "Richard", "Patricia", "Joseph", "Nancy", "Thomas", "Karen", "Charles", "Betty", "Daniel", "Helen", "Matthew", "Sandra", "Anthony", "Ashley", "Mark", "Donna", "Donald", "Carol", "Steven", "Michelle", "Paul", "Emily", "Andrew", "Amanda", "Joshua", "Melissa", "Kenneth", "Deborah", "Kevin", "Stephanie", "Brian", "Rebecca", "George", "Laura", "Edward", "Sharon", "Ronald", "Cynthia"];
 const LAST_NAMES = ["Smith", "Johnson", "Williams", "Brown", "Jones", "Garcia", "Miller", "Davis", "Rodriguez", "Martinez", "Hernandez", "Lopez", "Gonzalez", "Wilson", "Anderson", "Thomas", "Taylor", "Moore", "Jackson", "Martin", "Lee", "Thompson", "White", "Harris", "Clark", "Lewis", "Robinson", "Walker", "Young", "Allen", "King", "Wright", "Scott", "Torres", "Nguyen", "Hill", "Flores", "Green", "Adams", "Nelson", "Baker", "Hall", "Rivera", "Campbell", "Mitchell", "Carter", "Roberts"];
 const SOURCES = ["Website", "Referral", "LinkedIn", "Cold Call", "Email Campaign", "Facebook", "Instagram", "Twitter", "Google Ads", "Trade Show"];
@@ -60,7 +62,7 @@ const Dashboard = () => {
 
   const fetchLeads = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/leads", {
+      const res = await axios.get(`${API_BASE_URL}/api/leads`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (res.data.length > 0) {

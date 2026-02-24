@@ -2,6 +2,8 @@ import { useState } from "react";
 import axios from "axios";
 import { useTheme } from "../context/ThemeContext";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 const AddLeadModal = ({ isOpen, onClose, onLeadAdded, token }) => {
   const { theme } = useTheme();
   const isDark = theme === "dark";
@@ -23,7 +25,7 @@ const AddLeadModal = ({ isOpen, onClose, onLeadAdded, token }) => {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/leads",
+        `${API_BASE_URL}/api/leads`,
         formData,
         { headers: { Authorization: `Bearer ${token}` } }
       );

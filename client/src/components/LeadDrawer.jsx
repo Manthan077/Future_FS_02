@@ -3,6 +3,8 @@ import axios from "axios";
 import { useAuth } from "../context/AuthContext";
 import { useTheme } from "../context/ThemeContext";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 const STATUS_COLORS = {
   new: "#10b981",
   contacted: "#3b82f6",
@@ -31,7 +33,7 @@ const LeadDrawer = ({ lead, onClose, onLeadUpdated }) => {
 
   const refreshLead = async () => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/leads`, {
+      const res = await axios.get(`${API_BASE_URL}/api/leads`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       const updatedLead = res.data.find(l => l._id === lead._id);
@@ -50,7 +52,7 @@ const LeadDrawer = ({ lead, onClose, onLeadUpdated }) => {
 
     try {
       await axios.post(
-        `http://localhost:5000/api/leads/${lead._id}/notes`,
+        `${API_BASE_URL}/api/leads/${lead._id}/notes`,
         { text: noteText },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -67,7 +69,7 @@ const LeadDrawer = ({ lead, onClose, onLeadUpdated }) => {
     setStatusLoading(true);
     try {
       await axios.patch(
-        `http://localhost:5000/api/leads/${lead._id}/status`,
+        `${API_BASE_URL}/api/leads/${lead._id}/status`,
         { status: newStatus },
         { headers: { Authorization: `Bearer ${token}` } }
       );
