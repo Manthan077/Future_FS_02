@@ -256,11 +256,11 @@ if (rand < 0.92) status = "converted";  // 92% conversion
 
 ## 🚀 Deployment
 
-### Frontend (Vercel/Netlify)
+### Frontend (Vercel)
 1. Build the client: `npm run build`
 2. Deploy the `dist` folder
 
-### Backend (Heroku/Railway)
+### Backend (Render)
 1. Set environment variables
 2. Deploy the `server` directory
 
