@@ -290,22 +290,7 @@ This project is licensed under the MIT License.
 
 ## 👨‍💻 Author
 
-**Manthan**
-
----
-
-## 🙏 Acknowledgments
-
-- React team for the amazing framework
-- Tailwind CSS for the utility-first approach
-- Recharts for beautiful chart components
-- MongoDB for the flexible database solution
-
----
-
-## 📞 Support
-
-For support, email your-email@example.com or open an issue in the repository.
+**Manthan Sharma**
 
 ---
 
