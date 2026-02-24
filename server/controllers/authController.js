@@ -2,7 +2,7 @@ import Admin from "../models/Admin.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
-// 🚫 Admin registration permanently disabled
+// Admin registration permanently disabled
 export const registerAdmin = async (req, res) => {
   return res.status(403).json({
     message: "Admin registration is disabled"
