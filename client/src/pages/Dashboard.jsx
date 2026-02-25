@@ -152,24 +152,24 @@ const Dashboard = () => {
   return (
     <Layout>
       {/* Header */}
-      <div className="mb-8 flex items-center justify-between">
+      <div className="mb-6 lg:mb-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
-          <h1 className={`text-4xl font-bold ${isDark ? 'text-white' : 'bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent'} mb-2`}>
+          <h1 className={`text-2xl sm:text-3xl lg:text-4xl font-bold ${isDark ? 'text-white' : 'bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent'} mb-1 lg:mb-2`}>
             Dashboard Overview
           </h1>
-          <p className={isDark ? 'text-slate-400' : 'text-slate-600'}>Complete analytics and lead management</p>
+          <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>Complete analytics and lead management</p>
         </div>
         <button
           onClick={() => setShowAddModal(true)}
-          className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-semibold rounded-xl transition shadow-lg"
+          className="flex items-center gap-2 px-4 lg:px-6 py-2 lg:py-3 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-semibold rounded-xl transition shadow-lg text-sm lg:text-base whitespace-nowrap"
         >
-          <span className="text-xl">+</span>
+          <span className="text-lg lg:text-xl">+</span>
           <span>Add Lead</span>
         </button>
       </div>
 
       {/* Stats Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 mb-6 lg:mb-8">
         <StatCard 
           title="Total Leads" 
           value={leads.length} 
@@ -201,12 +201,12 @@ const Dashboard = () => {
       </div>
 
       {/* Enhanced Charts Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6 mb-6 lg:mb-8">
         {/* Conversion Rate Radial */}
-        <div className={`${isDark ? 'bg-slate-900 border-slate-800' : 'bg-white/80 backdrop-blur-xl border-indigo-200'} border rounded-2xl p-6 shadow-xl`}>
-          <h3 className={`text-lg font-bold ${isDark ? 'text-white' : 'text-slate-800'} mb-4`}>Conversion Performance</h3>
+        <div className={`${isDark ? 'bg-slate-900 border-slate-800' : 'bg-white/80 backdrop-blur-xl border-indigo-200'} border rounded-2xl p-4 lg:p-6 shadow-xl`}>
+          <h3 className={`text-base lg:text-lg font-bold ${isDark ? 'text-white' : 'text-slate-800'} mb-3 lg:mb-4`}>Conversion Performance</h3>
           <div className="flex items-center justify-center">
-            <ResponsiveContainer width="100%" height={280}>
+            <ResponsiveContainer width="100%" height={240}>
               <RadialBarChart 
                 cx="50%" 
                 cy="50%" 
@@ -223,7 +223,7 @@ const Dashboard = () => {
                   cornerRadius={30}
                   fill="#a855f7"
                 />
-                <text x="50%" y="50%" textAnchor="middle" dominantBaseline="middle" className="text-5xl font-bold" fill="#6366f1">
+                <text x="50%" y="50%" textAnchor="middle" dominantBaseline="middle" className="text-3xl sm:text-4xl lg:text-5xl font-bold" fill="#6366f1">
                   {conversionRate}%
                 </text>
               </RadialBarChart>
@@ -242,9 +242,9 @@ const Dashboard = () => {
         </div>
 
         {/* Pie Chart */}
-        <div className={`${isDark ? 'bg-slate-900 border-slate-800' : 'bg-white/80 backdrop-blur-xl border-indigo-200'} border rounded-2xl p-6 shadow-xl`}>
-          <h3 className={`text-lg font-bold ${isDark ? 'text-white' : 'text-slate-800'} mb-4`}>Status Distribution</h3>
-          <ResponsiveContainer width="100%" height={280}>
+        <div className={`${isDark ? 'bg-slate-900 border-slate-800' : 'bg-white/80 backdrop-blur-xl border-indigo-200'} border rounded-2xl p-4 lg:p-6 shadow-xl`}>
+          <h3 className={`text-base lg:text-lg font-bold ${isDark ? 'text-white' : 'text-slate-800'} mb-3 lg:mb-4`}>Status Distribution</h3>
+          <ResponsiveContainer width="100%" height={240}>
             <PieChart>
               <Pie
                 data={pieData}
@@ -272,11 +272,11 @@ const Dashboard = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6 mb-6 lg:mb-8">
         {/* Area Chart */}
-        <div className={`${isDark ? 'bg-slate-900 border-slate-800' : 'bg-white/80 backdrop-blur-xl border-indigo-200'} border rounded-2xl p-6 shadow-xl`}>
-          <h3 className={`text-lg font-bold ${isDark ? 'text-white' : 'text-slate-800'} mb-4`}>7-Day Lead Trend</h3>
-          <ResponsiveContainer width="100%" height={280}>
+        <div className={`${isDark ? 'bg-slate-900 border-slate-800' : 'bg-white/80 backdrop-blur-xl border-indigo-200'} border rounded-2xl p-4 lg:p-6 shadow-xl`}>
+          <h3 className={`text-base lg:text-lg font-bold ${isDark ? 'text-white' : 'text-slate-800'} mb-3 lg:mb-4`}>7-Day Lead Trend</h3>
+          <ResponsiveContainer width="100%" height={240}>
             <AreaChart data={timelineData}>
               <defs>
                 <linearGradient id="colorConverted" x1="0" y1="0" x2="0" y2="1">
@@ -310,9 +310,9 @@ const Dashboard = () => {
         </div>
 
         {/* Bar Chart */}
-        <div className={`${isDark ? 'bg-slate-900 border-slate-800' : 'bg-white/80 backdrop-blur-xl border-indigo-200'} border rounded-2xl p-6 shadow-xl`}>
-          <h3 className={`text-lg font-bold ${isDark ? 'text-white' : 'text-slate-800'} mb-4`}>Lead Sources Performance</h3>
-          <ResponsiveContainer width="100%" height={280}>
+        <div className={`${isDark ? 'bg-slate-900 border-slate-800' : 'bg-white/80 backdrop-blur-xl border-indigo-200'} border rounded-2xl p-4 lg:p-6 shadow-xl`}>
+          <h3 className={`text-base lg:text-lg font-bold ${isDark ? 'text-white' : 'text-slate-800'} mb-3 lg:mb-4`}>Lead Sources Performance</h3>
+          <ResponsiveContainer width="100%" height={240}>
             <BarChart data={sourceData}>
               <defs>
                 <linearGradient id="barGradient" x1="0" y1="0" x2="0" y2="1">
@@ -361,12 +361,12 @@ const Dashboard = () => {
 
       {/* Leads Table */}
       <div className={`${isDark ? 'bg-slate-900 border-slate-800' : 'bg-white/80 backdrop-blur-xl border-indigo-200'} border rounded-2xl overflow-hidden shadow-xl`}>
-        <div className={`px-6 py-4 ${isDark ? 'bg-slate-800 border-slate-700' : 'bg-gradient-to-r from-indigo-50 to-purple-50 border-indigo-200'} border-b`}>
-          <h3 className={`text-lg font-bold ${isDark ? 'text-white' : 'text-slate-800'}`}>All Leads ({filtered.length})</h3>
+        <div className={`px-4 lg:px-6 py-3 lg:py-4 ${isDark ? 'bg-slate-800 border-slate-700' : 'bg-gradient-to-r from-indigo-50 to-purple-50 border-indigo-200'} border-b`}>
+          <h3 className={`text-base lg:text-lg font-bold ${isDark ? 'text-white' : 'text-slate-800'}`}>All Leads ({filtered.length})</h3>
         </div>
         <div className="overflow-x-auto">
           <table className="w-full">
-            <thead>
+            <thead className="hidden lg:table-header-group">
               <tr className={`${isDark ? 'bg-slate-800' : 'bg-slate-50'} border-b ${isDark ? 'border-slate-700' : 'border-indigo-100'}`}>
                 <th className={`px-6 py-4 text-left text-xs font-bold ${isDark ? 'text-slate-400' : 'text-slate-600'} uppercase tracking-wider`}>
                   Name
@@ -402,28 +402,28 @@ const Dashboard = () => {
                 <tr
                   key={lead._id}
                   onClick={() => setSelectedLead(lead)}
-                  className={`${isDark ? 'hover:bg-slate-800' : 'hover:bg-indigo-50'} cursor-pointer transition`}
+                  className={`${isDark ? 'hover:bg-slate-800' : 'hover:bg-indigo-50'} cursor-pointer transition flex flex-col lg:table-row border-b lg:border-b-0 ${isDark ? 'border-slate-800' : 'border-indigo-100'} py-3 lg:py-0`}
                 >
-                  <td className="px-6 py-4">
+                  <td className="px-4 lg:px-6 py-2 lg:py-4">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-sm shadow-md">
+                      <div className="w-8 h-8 lg:w-10 lg:h-10 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-xs lg:text-sm shadow-md">
                         {lead.name.split(' ').map(n => n[0]).join('')}
                       </div>
-                      <span className={`font-semibold ${isDark ? 'text-white' : 'text-slate-800'}`}>{lead.name}</span>
+                      <span className={`font-semibold text-sm lg:text-base ${isDark ? 'text-white' : 'text-slate-800'}`}>{lead.name}</span>
                     </div>
                   </td>
-                  <td className="px-6 py-4">
-                    <div className="text-sm">
+                  <td className="px-4 lg:px-6 py-1 lg:py-4">
+                    <div className="text-xs lg:text-sm">
                       <div className={isDark ? 'text-slate-300' : 'text-slate-700'}>{lead.email}</div>
                       <div className={`text-xs mt-1 ${isDark ? 'text-slate-500' : 'text-slate-500'}`}>{lead.phone}</div>
                     </div>
                   </td>
-                  <td className="px-6 py-4">
-                    <span className={`px-3 py-1 ${isDark ? 'bg-slate-800 text-slate-300' : 'bg-slate-100 text-slate-700'} rounded-full text-xs font-medium`}>
+                  <td className="px-4 lg:px-6 py-1 lg:py-4">
+                    <span className={`px-2 lg:px-3 py-1 ${isDark ? 'bg-slate-800 text-slate-300' : 'bg-slate-100 text-slate-700'} rounded-full text-xs font-medium inline-block`}>
                       {lead.source}
                     </span>
                   </td>
-                  <td className="px-6 py-4">
+                  <td className="px-4 lg:px-6 py-1 lg:py-4">
                     <span
                       className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold"
                       style={{
@@ -435,7 +435,7 @@ const Dashboard = () => {
                       {lead.status.charAt(0).toUpperCase() + lead.status.slice(1)}
                     </span>
                   </td>
-                  <td className={`px-6 py-4 text-sm ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+                  <td className={`px-4 lg:px-6 py-1 lg:py-4 text-xs lg:text-sm ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
                     {new Date(lead.createdAt).toLocaleDateString('en-US', { 
                       month: 'short', 
                       day: 'numeric', 
@@ -466,12 +466,12 @@ const Dashboard = () => {
 };
 
 const StatCard = ({ title, value, icon, gradient, subtitle }) => (
-  <div className={`bg-gradient-to-br ${gradient} rounded-2xl p-6 shadow-xl text-white`}>
-    <div className="flex items-center justify-between mb-4">
-      <span className="text-4xl">{icon}</span>
+  <div className={`bg-gradient-to-br ${gradient} rounded-2xl p-4 lg:p-6 shadow-xl text-white`}>
+    <div className="flex items-center justify-between mb-3 lg:mb-4">
+      <span className="text-2xl lg:text-4xl">{icon}</span>
     </div>
-    <p className="text-white/90 text-sm mb-1 font-medium">{title}</p>
-    <h3 className="text-4xl font-bold mb-2">{value}</h3>
+    <p className="text-white/90 text-xs lg:text-sm mb-1 font-medium">{title}</p>
+    <h3 className="text-2xl lg:text-4xl font-bold mb-1 lg:mb-2">{value}</h3>
     <p className="text-white/70 text-xs">{subtitle}</p>
   </div>
 );
